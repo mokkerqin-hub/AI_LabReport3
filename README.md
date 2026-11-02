@@ -3,7 +3,8 @@
 A Streamlit web app that uses a **rule-based system** to help a university scholarship committee decide whether an applicant should receive a full scholarship, a partial scholarship, be sent for review, or be rejected.
 
 **BSD3513 Introduction to Artificial Intelligence — Lab Report 3**
-**Name:** MOK KER QIN · **Student ID:** SD24032
+
+**MOK KER QIN · SD24032**
 
 - **Live app:** <https://ailabreport3.streamlit.app/>
 - **GitHub repository:** <https://github.com/mokkerqin-hub/AI_LabReport3>
@@ -46,7 +47,7 @@ or replaced without changing the code. If the JSON is invalid, an error is shown
 2. Open a terminal in the folder and run:
 ```bash
 pip install -r requirements.txt
-streamlit run AI_Lab2.py
+streamlit run AI_Lab3.py
 ```
 
 ## Project structure
