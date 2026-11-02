@@ -5,7 +5,7 @@ A Streamlit web app that uses a **rule-based system** to help a university schol
 **BSD3513 Introduction to Artificial Intelligence — Lab Report 3**
 **Name:** MOK KER QIN · **Student ID:** SD24032
 
-- **Live app:** <https://your-app.streamlit.app>
+- **Live app:** <https://ailabreport3.streamlit.app>
 - **GitHub repository:** <https://github.com/mokkerqin-hub/AI_LabReport3>
 
 ---
@@ -42,8 +42,9 @@ or replaced without changing the code. If the JSON is invalid, an error is shown
 ---
 
 ## Run locally
-
+1. Download this repo (green **Code** button → **Download ZIP**) and unzip it.
+2. Open a terminal in the folder and run:
 ```bash
 pip install -r requirements.txt
-streamlit run app.py
+streamlit run AI_Lab2.py
 ```
