@@ -3,20 +3,6 @@ from typing import List, Dict, Any, Tuple
 import operator
 import streamlit as st
  
-# ----------------------------
-# 1) Minimal rule engine
-# ----------------------------
-# A rule shape:
-# {
-#   "name": "Top merit candidate",
-#   "priority": 100,               # higher wins if multiple actions conflict
-#   "conditions": [                # all must be true (AND)
-#       ["cgpa", ">=", 3.7],
-#       ["co_curricular_score", ">=", 80]
-#   ],
-#   "action": {"decision": "AWARD_FULL", "reason": "Excellent academic & co-curricular performance"}
-# }
- 
 OPS = {
     "==": operator.eq,
     "!=": operator.ne,
@@ -28,7 +14,6 @@ OPS = {
     "not_in": lambda a, b: a not in b,
 }
  
-# Rules used EXACTLY as given in the Lab Report 3 brief
 DEFAULT_RULES: List[Dict[str, Any]] = [
     {
         "name": "Top merit candidate",
