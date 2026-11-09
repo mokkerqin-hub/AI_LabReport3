@@ -1,77 +1,44 @@
-# Activation Function Visualiser (ReLU, Sigmoid, Tanh)
+# 🎓 Scholarship Advisory — Rule-Based System
 
-**BSD3513 Introduction to Artificial Intelligence – Lab Report 4 (Chapter 4: Neural Networks)**
+A Streamlit web app that uses a **rule-based system** to help a university scholarship committee decide whether an applicant should receive a full scholarship, a partial scholarship, be sent for review, or be rejected.
 
-Name: `<MOK KER QIN>`  |  Student ID: `<SD24032>`  
+**BSD3513 Introduction to Artificial Intelligence — Lab Report 3**
 
-This repository has three separate Streamlit web apps. Each one visualises a neural network activation function:
+**MOK KER QIN · SD24032**
 
-1. **Rectified Linear Unit (ReLU)**: `relu_app.py`
-2. **Sigmoid**: `sigmoid_app.py`
-3. **Hyperbolic Tangent (Tanh)**: `tanh_app.py`
+- **Live app:** <https://ailabreport3.streamlit.app/>
+- **GitHub repository:** <https://github.com/mokkerqin-hub/AI_LabReport3>
 
-## Live Apps
-
-| App | Live link |
-|---|---|
-| ReLU | [ailabreport4-relu.streamlit.app](https://ailabreport4-relu.streamlit.app/) |
-| Sigmoid | [ailabreport4-sigmoid.streamlit.app](https://ailabreport4-sigmoid.streamlit.app/) |
-| Tanh | [ailabreport4-tanh.streamlit.app](https://ailabreport4-tanh.streamlit.app/) |
+---
 
 ## Features
 
-Each app has the same layout so the three functions are easy to compare.
+### 1. Applicant facts
+Enter the applicant's six facts in the sidebar: CGPA, monthly family income, co-curricular score, community service
+hours, current semester and number of disciplinary actions. The values are shown as cards on the main page. Click
+**Evaluate** to run the rules.
 
-- **Formula:** the activation function f(x) and its derivative f'(x).
-- **1. Curve:** a graph of f(x) and f'(x) from -6 to 6. Use the *Input value x* slider to pick a point. The app marks it on the graph and shows f(x) and f'(x) in the output box, with the function's key properties.
-- **2. Neural Network:** a small multilayer perceptron (MLP) trained with that activation function on a non-linear toy dataset (Moons or Circles). It shows the decision boundary and the accuracy.
+![Applicant facts](screenshots/cover.png)
 
-### Sidebar settings
+### 2. Decision and matched rules
+The decision is shown in a colour-coded banner (green = `AWARD_FULL`, blue = `AWARD_PARTIAL`, yellow = `REVIEW`,
+red = `REJECT`) together with the reason and the winning rule. Below it, the table lists every rule that matched
+the applicant, ranked by priority. When more than one rule matches, the rule with the highest priority decides.
 
-| Setting | Description |
-|---|---|
-| Input value x | Value passed into the activation function |
-| Dataset | Moons or Circles (both are non-linear) |
-| Samples | Number of data points (100 to 1000) |
-| Noise | Amount of noise in the data (0.00 to 0.40) |
-| Advanced settings | Hidden layer sizes (e.g. `16,16`) and maximum iterations |
+![Decision and matched rules](screenshots/decision.png)
 
-The random seed is fixed at 42 so results are reproducible.
+### 3. Rule-by-rule check
+This section explains *why* the decision was made. Each rule is marked **Matched** or **Not matched**, and opening it
+shows every condition, the applicant's value and whether the condition is true or false. A rule is matched only when
+all of its conditions are true.
 
-## Screenshots
+![Rule-by-rule check](screenshots/check.png)
 
-### ReLU
-Live app: https://ailabreport4-relu.streamlit.app/
+### 4. Editable rules
+The **Rules** tab holds the rule base as JSON, loaded with the five rules from the lab brief. The rules can be edited
+or replaced without changing the code. If the JSON is invalid, an error is shown and the default rules are used.
 
-![ReLU app](screenshots/relu.png)
-
-### Sigmoid
-Live app: https://ailabreport4-sigmoid.streamlit.app/
-
-![Sigmoid app](screenshots/sigmoid.png)
-
-### Tanh
-Live app: https://ailabreport4-tanh.streamlit.app/
-
-![Tanh app](screenshots/tanh.png)
-
-## Activation Functions Summary
-
-| Function | Formula | Derivative | Range |
-|---|---|---|---|
-| ReLU | max(0, x) | 1 if x > 0, else 0 | [0, ∞) |
-| Sigmoid | 1 / (1 + e^-x) | f(x)(1 - f(x)) | (0, 1) |
-| Tanh | (e^x - e^-x) / (e^x + e^-x) | 1 - tanh²(x) | (-1, 1) |
-
-With the default settings (Moons, 300 samples, noise 0.20), the MLP reached these accuracies:
-
-| Activation | Accuracy |
-|---|---|
-| ReLU | 0.970 |
-| Sigmoid | 0.877 |
-| Tanh | 0.977 |
-
-Sigmoid scores lowest because its gradient is at most 0.25, so the network learns more slowly (the vanishing gradient problem).
+![Rules tab](screenshots/rules.png)
 
 ---
 
@@ -80,32 +47,12 @@ Sigmoid scores lowest because its gradient is at most 0.25, so the network learn
 2. Open a terminal in the folder and run:
 ```bash
 pip install -r requirements.txt
-```
-3. Start the app you want to see:
-```bash
-streamlit run relu_app.py
-streamlit run sigmoid_app.py
-streamlit run tanh_app.py
-```
-4. The app opens in your browser at `http://localhost:8501`. Press `Ctrl + C` in the terminal to stop it.
-
----
-
-## Repository Structure
-
-```
-├── relu_app.py          # ReLU app
-├── sigmoid_app.py       # Sigmoid app
-├── tanh_app.py          # Tanh app
-├── requirements.txt     # Python packages
-├── screenshots/         # App screenshots used in this README
-└── README.md
+streamlit run AI_Lab3.py
 ```
 
-## Tools Used
-
-- Python
-- Streamlit (web app)
-- NumPy (calculations)
-- Matplotlib (graphs)
-- scikit-learn (datasets and MLPClassifier)
+## Project structure
+```
+AI_Lab3.py           # Streamlit app
+requirements.txt     # dependencies
+screenshots/         # README images
+```
